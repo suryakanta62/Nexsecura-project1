@@ -1,0 +1,45 @@
+CTF Challenge:- Solving the Hackathon One Machine
+
+Hello, LinkedIn Network!
+
+On the 2 months and 19 days of the journey of cybersecurity. I'm feeling delighted & excited to learn about new machines and their tools, and understand their uses.
+These machines will help identify vulnerabilities, exploit privilege escalation techniques & brute-force to capture the flag.
+Here’s a LinkedIn-ready professional post format with:
+
+🚩 Challenge Overview:-
+
+Hackathon 1 is an entry-level Capture the Flag (CTF) machine that focuses on basic reconnaissance, enumeration, vulnerability exploitation, and privilege escalation techniques. The goal was to identify and exploit misconfigurations and services to escalate privileges and gain full system access.
+
+🛠️ Tools Used:-
+
+1)Nmap – Network Scanning
+2)Nikto – Web Vulnerability Scanner
+3)Dirb / Gobuster – Directory Brute-Forcing
+4)Netcat (nc) – Reverse Shell Listener
+5)Searchsploit – Exploit Database Lookup
+
+🧭 Key Steps in My Walkthrough:-
+
+1)Enumeration with Nmap:-
+ Identified open ports – typically 22 (SSH), 80 (HTTP), etc
+nmap -sC -sV -oN hackathon1_scan.txt [target-ip].
+
+2)Web Enumeration:-
+ Accessed a website on port 80 and brute-forced hidden directories using
+dirb http://[target-ip]/
+
+3)Identified Vulnerable Upload or Script:-
+ Found a file upload functionality or outdated web app version.
+
+4)Exploited Web Vulnerability:-
+ Gained reverse shell access using a crafted PHP payload or command injection.
+nc -lvnp 4444 ← listener
+
+5)Privilege Escalation:-
+Checked sudo -l, cron jobs, and file permissions.
+Used a known privilege escalation technique (e.g., GTFOBins, writable SUID binaries).
+Escalated to root.
+
+🧠 Key Takeaway:-
+
+This challenge reinforced the importance of methodical enumeration, chaining small misconfigurations, and staying persistent during privilege escalation. Hackathon 1 is a great entry point for anyone beginning their journey in offensive security and CTF solving.
