@@ -1,0 +1,41 @@
+CTF Challenge:- Solving Hackathon-2 
+
+Hello, LinkedIn Network!
+
+On the 3-month & 5-day journey of cybersecurity. I am very thrilled to solve the new machine & learn a new challenge, how to solve these machines & how to use the tool in this CTF challenge.
+Other than these, the machine is very hard, but their tool are very important - dirsearch,gobuster, hydra,ftp. 
+
+🚩 Challenge Overview:-
+
+Hackathon-2 is a CTF-style vulnerable machine designed to assess your ability to perform enumeration, privilege escalation, and post-exploitation techniques. The box mimics a real-world scenario where multiple footholds must be leveraged to escalate to root.
+
+🛠️ Tools & Techniques Used:-
+
+1)nmap – for initial port scanning and service enumeration
+2)gobuster – to discover hidden directories
+3)Nikto – for web vulnerability scanning
+4)Hydra – for brute-force attacks (if applicable)
+5)Dirsearch- for directory searching.
+
+🗝️ Key step in my walkthrough :-
+
+1)Enumeration:-
+Port scanning reveals open ports (typically HTTP and SSH).
+Web service hosts a vulnerable login panel or file upload interface.
+
+2)Initial Access :-
+Exploited web vulnerability (e.g., LFI, RCE, or weak credentials).
+Gained a reverse shell via upload or command injection.
+
+3)Privilege Escalation:-
+Found a cron job or SUID binary running as root.
+Used misconfigured scripts or kernel exploits to escalate privileges.
+
+4)Capture the Flag:-
+Accessed /root/root.txt or /home/user/user.txt containing the final flag.
+
+🎯 Key Takeaways:-
+Importance of deep enumeration on both services and web applications.
+Web exploitation is often the entry point — understanding common web flaws is crucial.
+Privilege escalation requires attention to OS-level misconfigurations.
+Hackathon-2 is a solid intermediate CTF that strengthens real-world pentesting skills.
