@@ -1,0 +1,69 @@
+CTF Challenge:- Cracking The DC-2 Machine
+
+Hello, LinkedIn Network!
+
+On the 3-month & 25 days journey of cybersecurity. In the 18th task of the CTF machine, this machine is intermediate compared to the first machine, but harder than the other machines.
+I am so grateful to understand these machines and the tools used in these CTF challenges.
+
+🔐 DC-2 CTF Challenge | Capture The Flag Walkthrough 🎯:-
+
+ Proud to share my experience in solving the DC-2 vulnerable machine – part of the DC series from VulnHub designed for practicing penetration testing and privilege escalation.
+
+🖥️ Machine Details:-
+
+Name: DC-2
+Difficulty: Intermediate
+Platform: VulnHub (Boot2Root)
+Goal: Capture the root flag (/root/flag.txt)
+IP Address: [Your assigned IP during the challenge]
+
+📌 Challenge Overview:-
+
+DC-2 is a vulnerable Linux-based machine that simulates a real-world scenario for attackers to exploit web vulnerabilities, gain initial access, enumerate users, and escalate to root.
+
+🛠️ Tools Used:-
+
+Nmap 🧭 – for port scanning
+Gobuster / Dirb 🔍 – for directory brute-forcing
+Nikto – for web server vulnerability scan
+Hydra – for brute-force attacks
+Netcat – for reverse shells
+LinPEAS – for privilege escalation enumeration
+
+🧭 Walkthrough Steps:-
+
+1)Nmap Scan:-
+ Discovered open ports: 80 (HTTP) and 22 (SSH)
+nmap -sV -sC -Pn [target IP]
+
+2)Web Enumeration:-
+Visited http://[IP] – saw a basic webpage with clues.
+Used gobuster to find hidden directories like /blog/ and /wp-login.php → confirmed WordPress is running.
+
+3)User Enumeration on WordPress:-
+Used wpscan and author enumeration → found a user named elliot.
+
+4)Brute-force WordPress Login:-
+Used hydra to brute-force the login:
+hydra -l elliot -P /usr/share/wordlists/rockyou.txt [IP] http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:Invalid"
+
+5)Gained WP Dashboard Access:-
+Used the plugin editor to inject a PHP reverse shell.
+
+6)Reverse Shell Access:-
+Uploaded and triggered the reverse shell → got access as www-data.
+
+7)Privilege Escalation:-
+Used linpeas.sh to scan the system.
+Found a readable user.txt and privilege escalation path via SUID binaries or misconfigured cron jobs.
+
+8)Escalated to Root:-
+Exploited vulnerable script or service.
+Accessed /root/flag.txt.
+
+🧠 Key Takeaways:-
+
+The power of web enumeration and WordPress vulnerabilities is critical in initial access.
+Brute-forcing credentials is still effective in poorly secured environments.
+Automated tools like LinPEAS simplify privilege escalation discovery.
+Hands-on practice sharpens your real-world pentesting skills.
