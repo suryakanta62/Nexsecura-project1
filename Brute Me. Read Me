@@ -1,0 +1,54 @@
+CTF Challenge :- Cracking The Brute Me Machine
+
+Hello, LinkedIn Network!
+
+On the 4-month 5-day journey of cybersecurity. In the 19th task of the CTF machine challenge, to solve these machines, brute-force and basic enumeration methods were used. These machines can perform tasks like this in CTF challenges.
+
+“Brute Me” CTF Machine walkthrough:-
+
+🔐 Brute Me CTF Challenge | Walkthrough & Learning Highlights 🎯:-
+
+🖥️ Machine: Brute Me
+ 🎯 Challenge Type: Capture the Flag (CTF) – Focused on brute-force attacks and basic enumeration.
+
+⚙️ Challenge Overview:-
+
+"Brute Me" is a beginner-friendly CTF machine that emphasizes web application brute-forcing techniques. The goal is to identify login credentials and escalate access to retrieve the final flag.
+
+🛠️ Tools Used:-
+
+Nmap – Port scanning and service enumeration
+Dirb / Gobuster – Directory brute-forcing
+Hydra – Brute-forcing login credentials
+Browser (Firefox) – Manual testing & UI interaction
+
+🚶‍♂️ My Walkthrough Steps:-
+
+1)Recon with Nmap:-
+
+ Identified open ports: 22 (SSH), 80 (HTTP)
+
+2)Web Enumeration:-
+ 
+Accessed the webpage → Basic login form found
+ Used Gobuster to brute force directories → Discovered hidden paths
+
+3)Brute-force Login:-
+
+ Intercepted login request using Burp Suite
+ Used Hydra to brute-force with rockyou.txt
+ Discovered valid credentials: admin:password123
+
+4)Post-login Access:-
+ 
+Logged in, found hidden message or file
+ Accessed internal dashboard revealing the flag
+
+🔑 Key Takeaway:-
+
+This machine emphasizes the power of methodical brute-forcing and manual validation during reconnaissance. It’s a great reminder to never overlook simple weak passwords and to always test HTTP forms thoroughly.
+
+✅ Successfully captured the flag! :-
+ 
+💡 Skills Practiced: Enumeration, Brute-force, Web Testing, Credential Attacks
+🔁 Keep Learning | Keep Hacking | Stay Curious
