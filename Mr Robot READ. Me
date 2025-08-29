@@ -1,0 +1,46 @@
+Mr Robot CTF Machine Challenge:-
+
+🕵️ Mr. Robot CTF Walkthrough:-
+
+🎯 Challenge Overview:-
+
+The Mr. Robot CTF machine is a beginner-to-intermediate level vulnerable VM inspired by the TV show Mr. Robot. The objective is to capture 3 keys (flags) hidden inside the system.
+
+* Platform: VulnHub / TryHackMe
+* Objective: Gain root access and read the final flag.
+* Difficulty Level: Easy–Medium
+* Skills Tested: Web enumeration, WordPress exploitation, privilege escalation
+
+🚩 Mr. Robot CTF Walkthrough | Vulnhub Machine 🚩
+
+ Challenge Overview:-
+
+ The Mr. Robot CTF is a beginner-to-intermediate level machine hosted on Vulnhub, inspired by the famous Mr. Robot TV series. The objective is to gain root access and capture the 3 hidden keys while exploring real-world exploitation techniques.
+
+ Tools Used:-
+
+1)Nmap → For service and port scanning
+2)Gobuster / Dirsearch → Directory enumeration
+3)Nikto → Web server scanning
+4)Hydra → Brute-forcing credentials
+5)Netcat → Reverse shell connection
+6)Linux Privilege Escalation techniques → For root access
+
+ Walkthrough Steps:-
+ 
+1️⃣ Enumeration: Started with nmap to identify open ports → HTTP & SSH.
+ 2️⃣ Web Exploration: Found a WordPress-like site and used gobuster for directory fuzzing → revealed a hidden WordPress login.
+ 3️⃣ Credential Discovery: Extracted leaked credentials from wordlists inspired by Mr. Robot.
+ 4️⃣ Exploitation: Logged into WordPress admin → uploaded a reverse shell via theme editor.
+ 5️⃣ Initial Foothold: Caught the reverse shell with Netcat.
+ 6️⃣ Privilege Escalation: Identified misconfigured files and escalated to root.
+ 7️⃣ Captured All 3 Keys: User.txt, Robot.txt, and Root.txt. 🎯
+
+ Key Takeaways:-
+
+Enumeration is the backbone of every CTF and real-world pentest.
+Always check hidden directories, configuration files, and default credentials.
+Privilege escalation requires patience and careful system analysis.
+The Mr. Robot CTF is an excellent beginner-friendly challenge to practice real-world attack paths.
+
+ Completing this sharpened my skills in web exploitation, privilege escalation, and enumeration strategies—crucial for penetration testing.
