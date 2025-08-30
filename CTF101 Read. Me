@@ -1,0 +1,30 @@
+CTF101 Challenge Solving CTF Machine:-
+
+This CTF Challenge was so exciting to find the flag and solve these machines. These machines help learn & sharpen skills in a hands-on cybersecurity challenge.
+
+🕵️‍♂️ CTF101 Walkthrough | My Cybersecurity Learning Journey
+
+ Challenge Overview:-
+ 
+CTF101 is an entry-level Capture The Flag challenge designed to strengthen fundamental cybersecurity skills like reconnaissance, enumeration, exploitation, and privilege escalation. It’s a great starting point for beginners stepping into the world of penetration testing.
+
+ Tools Used:-
+
+1)Nmap → For initial reconnaissance and port scanning
+2)Dirsearch / Gobuster → Directory and file enumeration
+3)Nikto → Vulnerability scanning of web applications
+4)Hydra → Brute force login attempts
+5)Netcat → Reverse shell interaction
+
+ My Walkthrough Steps:-
+ 
+1️⃣ Performed Nmap scan to identify open ports and services.
+ 2️⃣ Used directory brute-forcing to find hidden files and login pages.
+ 3️⃣ Discovered weak credentials using Hydra on the login form.
+ 4️⃣ Gained initial access and uploaded a reverse shell.
+ 5️⃣ Explored the system, gathered flags, and escalated privileges.
+ 6️⃣ Successfully captured the final root flag. 🚩
+
+ Key Takeaway:-
+ 
+CTF101 highlighted the importance of methodical enumeration and basic exploitation techniques. Even simple misconfigurations can expose critical vulnerabilities. This challenge strengthened my foundation for tackling more advanced CTFs.
