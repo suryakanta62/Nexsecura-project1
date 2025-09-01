@@ -1,0 +1,48 @@
+NACOS CTF Walkthrough
+
+ This CTF walkthrough helps to increase confidence and learn a new skill. This challenge was a great exercise to enhance my skills in enumeration, exploiting misconfigured web applications, and privilege escalation techniques.
+
+*Platform: Vulnhub / CTF Lab
+
+*Objective: Capture the root flag by exploiting misconfigurations and vulnerabilities in the Nacos service.
+
+*Difficulty: Intermediate (requires knowledge of enumeration, RCE exploitation, and privilege escalation).
+
+The Nacos CTF machine is a Capture The Flag challenge focused on web exploitation and misconfigurations. It revolves around identifying weak configurations in Apache/Nginx services, understanding directory traversal, and exploiting misconfigured APIs to escalate privileges and gain system access.
+
+ Challenge Overview:-
+
+1)The objective of the Nacos challenge is to:
+Enumerate the web services and hidden endpoints.
+2)Identify vulnerable API endpoints.
+3)Exploit misconfigurations to gain initial foothold.
+4)Escalate privileges to obtain the final flag.
+
+This challenge primarily enhances skills in reconnaissance, web penetration testing, and privilege escalation.
+
+ Tools Used:-
+
+1)Nmap → For service and port scanning
+2)Gobuster / Dirb → Directory brute forcing
+3)Curl / Burp Suite → Inspecting and exploiting API requests
+4)Hydra → Password brute forcing (if applicable)
+5)Netcat → Reverse shell handling
+6)Linux Privilege Escalation techniques
+
+ My Walkthrough (Step-by-Step):-
+
+1)Enumeration with Nmap → Discovered open ports (HTTP service on 8848).
+2)Directory brute force → Found /nacos endpoint hosting the Nacos config console.
+3)Authentication bypass → Observed weak/no authentication on API endpoints.
+4)Exploiting configuration leak → Retrieved database credentials from exposed configs.
+5)Database access → Extracted sensitive data and verified login credentials.
+6)Reverse shell → Used the credentials to gain foothold on the target machine.
+7)Privilege Escalation → Exploited SUID binaries / misconfigured permissions to escalate to root.
+8)Captured the Flag 🎯
+
+ Key Takeaways:-
+
+✅ Importance of thorough enumeration in uncovering hidden endpoints.
+ ✅ Misconfigured Nacos API endpoints can directly leak sensitive information.
+ ✅ Real-world lesson: Always secure configuration panels with proper authentication & access control.
+ ✅ Reinforced skills in recon, API exploitation, and privilege escalation.
