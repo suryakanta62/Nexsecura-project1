@@ -1,0 +1,42 @@
+DC-3 Machine CTF 
+
+Another step in my CTF journey! The DC-3 machine was a great way to sharpen my skills in enumeration, exploitation, and privilege escalation. This 
+ctf challenge to increase the ability to solve the machine.
+
+The DC series is a Capture The Flag (CTF) challenge designed for security enthusiasts to practice penetration testing and ethical hacking skills. DC-3 focuses on web exploitation, privilege escalation, and enumeration techniques.
+
+🚩 DC-3 CTF Machine Walkthrough:-
+
+Recently, I completed the DC-3 CTF machine, which was a great exercise to sharpen my penetration testing and privilege escalation skills.
+
+🔎 Challenge Overview:-
+
+1Difficulty: Intermediate
+2)Objective: Gain root access and capture the flag.
+3)Skills Tested: Web enumeration, SQL injection, privilege escalation, Linux enumeration.
+
+🛠️ Tools Used:-
+
+1)Nmap → Service & port scanning
+2)Gobuster → Directory brute forcing
+3)Burp Suite → Testing SQL injection
+4)Hydra → Password brute force
+5)Linpeas / Manual enumeration → Privilege escalation
+
+📝 My Walkthrough:-
+
+1)Reconnaissance – Used nmap to identify open ports (HTTP, SSH).
+2)Enumeration – Ran gobuster to discover hidden directories and files.
+3)Web Exploitation – Found a login form vulnerable to SQL injection → gained admin access.
+4)Foothold – Uploaded a reverse shell through the vulnerable web application.
+5)Privilege Escalation – Enumerated the system and identified a misconfigured SUID binary that allowed privilege escalation.
+6)Root Access – Exploited the misconfiguration to escalate privileges and captured the root flag.
+
+🎯 Key Takeaways:-
+
+Always perform thorough enumeration—hidden services often hold the key.
+SQL injection vulnerabilities are still highly impactful when overlooked.
+Privilege escalation requires careful system analysis—misconfigurations are powerful attack vectors.
+Real-world systems often combine multiple small weaknesses that lead to full compromise.
+
+ This challenge reinforced the importance of structured methodology: Enumerate → Exploit → Escalate → Capture.
