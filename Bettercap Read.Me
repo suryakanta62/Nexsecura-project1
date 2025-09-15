@@ -1,0 +1,38 @@
+Bettercap (MITM) CTF:-
+
+Today I can use this machine to learn new things and to sharpen my skills. To solve the new machines, it can encourage me to solve new & hard machines.
+
+Challenge overview:-
+ 
+Today’s box tested network-level interception and credential harvesting on a small lab network. The goal was to identify the target, intercept traffic, and extract useful artifacts without crashing the host.
+
+Tools used:-
+
+1)bettercap — active MITM, traffic injection, credential sniffer
+2)nmap — target discovery & port scan
+3)arp-scan / netdiscover — quick host discovery
+4)tcpdump / wireshark — packet capture/analysis
+ 
+My walkthrough step :-
+
+1)Recon: discovered the network range and live hosts with nmap -sn and arp-scan.
+2)Targeting: identified suspicious services (HTTP, maybe an API) using nmap -sV -p- <target>.
+3)ARP spoofing / MITM: launched Bettercap to become the gateway using (example):
+
+sudo bettercap -iface eth0
+net. probe on
+set arp.spoof.targets <target-ip>
+arp.spoof on
+set http.proxy.script-path ./scripts/your-script.js # optional
+http.proxy on
+
+4)Traffic capture & inspection: used Bettercap’s http.proxy + net.sniff modules to log requests/responses and tcpdump to store PCAPs for deeper analysis.
+5)Credential extraction: searched intercepted HTTP payloads and forms for credentials/tokens; used grep/Wireshark to find sensitive data.
+6)Post-exploit verification: validated findings (e.g., replayed tokens, authenticated to a dev endpoint) and documented artifacts.
+
+Key takeaways:-
+
+1)Network-level misconfigurations make interception trivial — always use HTTPS with HSTS and secure cookies.
+2)Bettercap is powerful but noisy; combine it with careful recon to avoid detection in realistic tests.
+3)Capture everything: plain sniffing often yields unexpected secrets (API keys, session cookies).
+4)Document your steps and evidence clearly — it’s crucial for reporting and remediation.
